@@ -32,7 +32,7 @@ public class SimpleList {
 
     /**
      * This method adds a number to the front of the list. And increase size if
-     * needed.
+     * needed by 50%.
      * 
      * @param num number to be added.
      */
@@ -50,6 +50,21 @@ public class SimpleList {
         }
 
         list[0] = num;
+    }
+
+    /**
+     * This method adds a number to the end of the list. And increase size if needed
+     * by 50%.
+     * 
+     * @param num number to be added.
+     */
+    public void append(int num) {
+        if (count == list.length) {
+            list = Arrays.copyOf(list, list.length + (list.length / 2));
+        }
+
+        list[count] = num;
+        count++;
     }
 
     /**
@@ -97,6 +112,30 @@ public class SimpleList {
     }
 
     /**
+     * This method returns the current number of possible locations in the list.
+     * 
+     * @return int number of possible locations in the list.
+     */
+    public int size() {
+        return list.length;
+    }
+
+    /**
+     * This method returns the first element if it exist.
+     * 
+     * @return int of first element, or -1 if list is empty.
+     */
+    public int first() {
+        int first = -1;
+
+        if (count > 0) {
+            first = list[0];
+        }
+
+        return first;
+    }
+
+    /**
      * This writes the list to a sting and returns the result.
      * 
      * @return String This is a string of the list.
@@ -136,4 +175,5 @@ public class SimpleList {
         }
         return pos;
     }
+
 }
