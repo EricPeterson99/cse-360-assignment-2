@@ -2,6 +2,7 @@
 // Name: Eric Peterson
 // ID: 145
 // Assignment 1
+// Repo: https://github.com/EricPeterson99/cse-360-assignment-2
 
 package cse360assign2;
 
