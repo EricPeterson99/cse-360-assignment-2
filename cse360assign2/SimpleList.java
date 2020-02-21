@@ -96,7 +96,7 @@ public class SimpleList {
             count--;
 
             /* If there is more than 25% empty space, then shrink list */
-            if (((double) count) / list.length < 0.75) {
+            if (count < list.length * 3 / 4) {
                 list = Arrays.copyOf(list, count);
             }
         }
@@ -128,6 +128,7 @@ public class SimpleList {
     public int first() {
         int first = -1;
 
+        /* If first exist */
         if (count > 0) {
             first = list[0];
         }
