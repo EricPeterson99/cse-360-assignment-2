@@ -5,24 +5,25 @@
 
 package cse360assign2;
 
+import java.util.Arrays;
+
 /**
- * This is a class that creates a list that a can be modified and returned
- * from. This list can have a max size of 10 elements and all elements are added
- * to the front of the list. This list can also be searched, converted to
- * string, and has the ability to remove elements.
+ * This is a class that creates a list that a can be modified and returned from.
+ * This list can have a max size of 10 elements and all elements are added to
+ * the front of the list. This list can also be searched, converted to string,
+ * and has the ability to remove elements.
  */
 public class SimpleList {
 
     /**
-     * int[] list - the list of numbers
-     * int count - the count of numbers in the list
+     * int[] list - the list of numbers int count - the count of numbers in the list
      */
     private int[] list;
     private int count;
 
     /**
-     * This is the main method which makes a simple list of 10 elements and 
-     * sets the count to 0.
+     * This is the main method which makes a simple list of 10 elements and sets the
+     * count to 0.
      */
     public SimpleList() {
         list = new int[10];
@@ -30,15 +31,17 @@ public class SimpleList {
     }
 
     /**
-     * This method adds a number to the front of the list.
+     * This method adds a number to the front of the list. And increase size if
+     * needed.
      * 
      * @param num number to be added.
      */
     public void add(int num) {
+        count++;
 
-        /* count cannot be higher than the list length */
-        if (count < list.length) {
-            count++;
+        /* if count higher than the list length, then increase list size by 50% */
+        if (count > list.length) {
+            list = Arrays.copyOf(list, list.length + (list.length / 2));
         }
 
         /* Shift element right to make room */
@@ -60,19 +63,27 @@ public class SimpleList {
 
         for (int index = 0; index < count; index++) {
 
-            /*Iterate unitl the element to remove is found */
+            /* Iterate unitl the element to remove is found */
             if (list[index] == num) {
                 removeFound = true;
             }
 
-            /*Shift all elements left after the element to remove */
-            if (removeFound) {
+            /*
+             * Shift all elements left after the element to remove, unless it is the last
+             * element
+             */
+            if (removeFound && index != list.length - 1) {
                 list[index] = list[index + 1];
             }
         }
 
         if (removeFound) {
             count--;
+
+            /* If there is more than 25% empty space, then shrink list */
+            if (((double) count) / list.length < 0.75) {
+                list = Arrays.copyOf(list, count);
+            }
         }
     }
 
