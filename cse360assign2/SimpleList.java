@@ -127,14 +127,7 @@ public class SimpleList {
      * @return int of first element, or -1 if list is empty.
      */
     public int first() {
-        int first = -1;
-
-        /* If first exist */
-        if (count > 0) {
-            first = list[0];
-        }
-
-        return first;
+        return list[0];
     }
 
     /**

@@ -224,7 +224,7 @@ public class SimpleListTest {
     public void testFirst2() {
         SimpleList list = new SimpleList();
 
-        assertEquals(-1, list.first());
+        assertEquals(0, list.first());
     }
 
     /**
