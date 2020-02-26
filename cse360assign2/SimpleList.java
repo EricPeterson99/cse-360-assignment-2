@@ -98,7 +98,7 @@ public class SimpleList {
 
             /* If there is more than 25% empty space, then shrink list */
             if (count < list.length * 3 / 4) {
-                list = Arrays.copyOf(list, count);
+                list = Arrays.copyOf(list, list.length * 3 / 4);
             }
         }
     }

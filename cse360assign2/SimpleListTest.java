@@ -98,6 +98,31 @@ public class SimpleListTest {
     }
 
     /**
+     * This methods is test the append by making sure that it is added in the
+     * correct position.
+     */
+    @Test
+    public void testAppend1() {
+        SimpleList list = new SimpleList();
+        list.add(1);
+        list.add(2);
+        list.append(3);
+
+        assertEquals("2 1 3", list.toString());
+    }
+
+    /**
+     * This methods test append of an empy list
+     */
+    @Test
+    public void testAppend2() {
+        SimpleList list = new SimpleList();
+        list.append(3);
+
+        assertEquals("3", list.toString());
+    }
+
+    /**
      * This methods test the remove by adding elements then removing one and
      * checking if it is removed using search.
      */
@@ -154,8 +179,7 @@ public class SimpleListTest {
         list.remove(2);
         list.remove(1);
 
-        /* Checks to see if '2' is removed */
-        assertEquals(4, list.size());
+        assertEquals(5, list.size());
     }
 
     /**
