@@ -248,7 +248,47 @@ public class SimpleListTest {
     public void testFirst2() {
         SimpleList list = new SimpleList();
 
-        assertEquals(0, list.first());
+        assertEquals(-1, list.first());
+    }
+
+    /**
+     * This methods test the last by adding two elements and checking the last is
+     * returned.
+     */
+    @Test
+    public void testLast1() {
+        SimpleList list = new SimpleList();
+        list.add(0);
+        list.add(1);
+
+        assertEquals(0, list.last());
+    }
+
+    /**
+     * This methods test the last by getting the last of an empty list.
+     */
+    @Test
+    public void testLast2() {
+        SimpleList list = new SimpleList();
+
+        assertEquals(-1, list.last());
+    }
+
+    /**
+     * This methods test the last by getting the last of an empty list.
+     */
+    @Test
+    public void testLast3() {
+        SimpleList list = new SimpleList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.remove(2);
+        list.remove(1);
+
+        assertEquals(3, list.last());
     }
 
     /**

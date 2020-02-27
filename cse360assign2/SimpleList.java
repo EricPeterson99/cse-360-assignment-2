@@ -127,7 +127,26 @@ public class SimpleList {
      * @return int of first element, or -1 if list is empty.
      */
     public int first() {
-        return list[0];
+        int first = -1;
+
+        if (count > 0) {
+            first = list[0];
+        }
+        return first;
+    }
+
+    /**
+     * This method returns the last element if it exist.
+     * 
+     * @return int of last element, or -1 if list is empty.
+     */
+    public int last() {
+        int last = -1;
+
+        if (count > 0) {
+            last = list[count - 1];
+        }
+        return last;
     }
 
     /**
